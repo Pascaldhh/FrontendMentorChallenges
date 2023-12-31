@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+:root {
+    --back-sedans: hsl(31, 77%, 52%);
+    --back-suvs: hsl(184, 100%, 22%);
+    --back-luxury: hsl(179, 100%, 13%);
+
+    --clr-par: hsla(0, 0%, 100%, 0.75);
+    --clr-primary: hsl(0, 0%, 95%);
+
+    --clr-attribution: rgb(139,0,0);
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+h1, h2, h3, p {
+    margin: 0;
+}
+body {
+    margin: 0;
+    font-size: 15px;
+    background-color: var(--clr-primary);
+    font-family: 'Lexend Deca', sans-serif;
+}
+.container {
+    margin: 50px auto 0 auto;
+    max-width: 375px;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+/* cards */
+.card {
+    padding: 35px;
+}
+.card-sedans {
+    background-color: var(--back-sedans);
+    border-radius: 10px 10px 0 0;
+}
+.card-suvs {
+    background-color: var(--back-suvs);
+}
+.card-luxury {
+    background-color: var(--back-luxury);
+    border-radius: 0 0 10px 10px;
+}
+.card__img {
+    margin-bottom: 25px;
+}
+.card__title {
+    color: var(--clr-primary);
+    font-family: 'Big Shoulders Display', cursive;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.card__paragraph {
+    color: var(--clr-par);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* btns */
+.btn {
+    background-color: var(--clr-primary);
+    text-decoration: none;
+    color: unset;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 9px 20px;
+    border-radius: 20px;
+    border: 2px solid var(--clr-primary);
+}
+.card .btn:hover {
+    background-color: unset;
+    color: var(--clr-primary);
+}
+.card-sedans .btn {
+    color: var(--back-sedans);
+}
+.card-suvs .btn {
+    color: var(--back-suvs);
+}
+.card-luxury .btn {
+    color: var(--back-luxury);
+}
+
+/* attribution */ 
+.attribution {
+    text-align: center;
+    margin: 20px 0;
+    
+}
+.attribution a {
+    text-decoration: none;
+    color: var(--clr-attribution);
+}
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+/* media queries*/
+@media (min-width: 992px) {
+    .container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 900px;
+        margin: auto;
+    }
+    .card__paragraph {
+        margin-bottom: 70px;
+    }
+    .card-sedans {
+        border-radius: 10px 0 0 10px;
+    }
+    .card-luxury {
+        border-radius: 0 10px 10px 0;
+    }
+    .attribution {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
