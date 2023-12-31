@@ -1,0 +1,119 @@
+:root {
+  --primary-clr-red: hsl(0, 78%, 62%);
+  --primary-clr-cyan: hsl(180, 62%, 55%);
+  --primary-clr-orange: hsl(34, 97%, 64%);
+  --primary-clr-blue: hsl(212, 86%, 64%);
+
+  --neutral-clr-dark-blue: hsl(234, 12%, 34%);
+  --neutral-clr-gray-blue: hsl(229, 6%, 66%);
+  --neutral-clr-light-gray: hsl(0, 0%, 98%);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p, ul {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+.container {
+  padding: 0 40px;
+}
+h1 { font-weight: 200 }
+h1, h2 {
+  color: var(--neutral-clr-dark-blue);
+  font-size: calc(1.3rem + .9vw);
+}
+
+/* Header styling */
+header {
+  margin-top: 60px;
+  text-align: center;
+}
+.header__description {
+  font-size: calc(.9rem + .3vw);
+  color: var(--neutral-clr-gray-blue);
+  max-width: 700px;
+  margin: 10px auto;
+}
+
+/* Cards styling */
+.cards {
+  margin-top: 75px;
+  display: grid;
+  justify-items: center;
+  gap: 25px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0px 3px 10px rgb(0 50 100 / .15);
+  border-top: 3px solid;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 100%;
+  height: 225px;
+}
+.card:nth-child(1) { border-color: var(--primary-clr-cyan) }
+.card:nth-child(2) { border-color: var(--primary-clr-red) }
+.card:nth-child(3) { border-color: var(--primary-clr-orange) }
+.card:nth-child(4) { border-color: var(--primary-clr-blue) }
+
+.card__title {
+  color: var(--neutral-clr-dark-blue)
+}
+.card__description {
+  color: var(--neutral-clr-gray-blue);
+}
+.card__picture {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card__image {
+  display: block;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 100px;
+  text-align: center;
+}
+
+footer .attribution a {
+  color: var(--primary-clr-red);
+  font-weight: 600;
+  text-decoration: none;
+}
+footer .attribution a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1440px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  .card:nth-child(2) { order: 1 }
+  .card:nth-child(3) { order: 3 }
+
+  .card:nth-child(1) {
+    grid-row: span 2;
+    order: 0;
+    justify-self: end;
+  }
+  
+  .card:nth-child(4) {
+    order: 2;
+    grid-row: span 2;
+  }
+}
