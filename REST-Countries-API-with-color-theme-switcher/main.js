@@ -18,7 +18,7 @@ class Country {
     
     let isDataJson = false;
     if(response.status != 200) {
-      response = await fetch("./data.json");
+      response = await fetch("/REST-Countries-API-with-color-theme-switcher/data.json");
       isDataJson = true;
     }
     
@@ -34,12 +34,29 @@ class Country {
         json[index]?.region,
         json[index]?.subregion,
         json[index]?.capital,
-        json[index]?.tld,
-        json[index]?.currencies,
-        json[index]?.languages)
+        !isDataJson ? json[index]?.tld : json[index]?.topLevelDomain,
+        json[index].currencies != null 
+          ? Object.values(json[index].currencies).map(item => item.name)
+          : ["None"],
+        !isDataJson 
+          ? json[index].languages != null
+            ? Object.values(json[index].languages)
+            : ["None"]
+          : json[index].languages != null
+            ? json[index].languages.map(item => item?.name)
+            : ["None"],
+        !isDataJson 
+          ? json[index].borders != null 
+            ? json[index].borders.map(border => json.filter(country => country.cca3 != null && country.cca3.toLowerCase() == border.toLowerCase())[0]?.name?.common)
+            : []
+          : json[index].borders != null
+            ? json[index].borders.map(border => json.filter(country => country.alpha3Code != null && country.alpha3Code.toLowerCase() == border.toLowerCase())[0]?.name)
+            : []) 
+
+          
       );
     }
-    console.log(json)
+
     return countries;
   }
 
@@ -56,7 +73,7 @@ class Country {
       <div class="country__content">
         <h2 class="country__title">${this.name}</h2>
         <div class="country__description">
-          <p><span class="fw-bold">Population:</span> ${this.population}</p>
+          <p><span class="fw-bold">Population:</span> ${this.population.toLocaleString()}</p>
           <p><span class="fw-bold">Region:</span> ${this.region}</p>
           <p><span class="fw-bold">Capital:</span> ${this.capital}</p>
         </div>
@@ -71,20 +88,21 @@ class Country {
       <h2 class="country-info__title">${this.name}</h2>
       <div class="country-info__side-by-side">
         <div class="country-info__group first">
-          <p><span class="fw-bold">Native Name:</span> ${this.nativeName}</p>
-          <p><span class="fw-bold">Population:</span> ${this.population}</p>
+          <p><span class="fw-bold">Native Name:</span> ${this.name}</p>
+          <p><span class="fw-bold">Population:</span> ${this.population.toLocaleString()}</p>
           <p><span class="fw-bold">Region:</span> ${this.region}</p>
           <p><span class="fw-bold">Sub Region:</span> ${this.subRegion}</p>
           <p><span class="fw-bold">Capital:</span> ${this.capital}</p>
         </div>
         <div class="country-info__group second">
           <p><span class="fw-bold">Top Level Domain:</span> ${this.topLevelDomain}</p>
-          <p><span class="fw-bold">Currencies:</span> ${this.currencies}</p>
-          <p><span class="fw-bold">Languages:</span> ${this.languages}</p>
+          <p><span class="fw-bold">Currencies:</span> ${this.currencies.join(', ')}</p>
+          <p><span class="fw-bold">Languages:</span> ${this.languages.join(', ')}</p>
         </div>
       </div>
       <div class="country-info__border-countries">
-        <p><span class="fw-bold">Border Countries:</span> ${this.borderCountries}</p>
+        <p><span class="fw-bold">Border Countries:</span></p>
+        ${this.borderCountries.map(item => `<a href="../country/?name=${item}" class="country-info__border-countries-border">${item}</a>`).join('')}
       </div>
     </div>
     `;
@@ -204,5 +222,5 @@ if(!window.location.pathname.includes("country")) {
 } else {
   const container = document.getElementById("country-info-container");
   const country = await Country.get(new URL(window.location).searchParams.get("name"));
-  container.innerHTML = country.countryInfoCard();
+  container.innerHTML = country != null ? country.countryInfoCard() : `<h2>No country found</h2>`;
 }

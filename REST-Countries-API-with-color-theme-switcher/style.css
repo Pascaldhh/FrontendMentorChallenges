@@ -1,15 +1,24 @@
 :root {
-  /* Dark mode */
-  --clr-dark-blue : hsl(209, 23%, 22%); 
-  --bg-very-dark-blue: hsl(207, 26%, 17%); 
+  --bg-theme: hsl(0, 0%, 98%);
+  --clr-elements: hsl(0, 0%, 100%);
+  --clr-input: hsl(0, 0%, 52%);
+  --clr-box-shadow: var(--clr-input);
+  --clr-text: hsl(200, 15%, 8%);
+}
 
-  /* Light mode */
-  --clr-very-dark-blue: hsl(200, 15%, 8%);
-  --clr-dark-gray: hsl(0, 0%, 52%);
-  --bg-very-dark-gray: hsl(0, 0%, 98%);
-
-  /* Both */
-  --clr-white: hsl(0, 0%, 100%);
+html[data-theme='light'] {
+  --bg-theme: hsl(0, 0%, 98%);
+  --clr-elements: hsl(0, 0%, 100%);
+  --clr-input: hsl(0, 0%, 52%);
+  --clr-box-shadow: var(--clr-input);
+  --clr-text: hsl(200, 15%, 8%);
+}
+html[data-theme='dark'] {
+  --bg-theme: hsl(207, 26%, 17%);
+  --clr-elements: hsl(209, 23%, 22%);
+  --clr-input: var(--clr-text);
+  --clr-box-shadow: #000;
+  --clr-text:hsl(0, 0%, 100%);
 }
 
 *, *::before, *::after {
@@ -19,12 +28,13 @@
 body {
   margin: 0;
   font-size: 14px;
-  background-color: var(--bg-very-dark-gray);
+  background-color: var(--bg-theme);
+  color: var(--clr-text);
 }
 body, button, select, input {
   font-family: 'Nunito Sans', sans-serif;
 }
-
+select, input {color: var(--clr-input)}
 img { display: block; max-width: 100%; }
 .fw-bold { font-weight: 600; }
 
@@ -36,8 +46,8 @@ img { display: block; max-width: 100%; }
 
 /* Header */
 .top-header {
-  background-color: var(--clr-white);
-  box-shadow: 0px 0px 5px -2px var(--clr-dark-gray);
+  background-color: var(--clr-elements);
+  box-shadow: 0px 0px 5px -2px var(--clr-box-shadow);
   padding: 12px 0;
 }
 .top-header .container {
@@ -77,9 +87,9 @@ img { display: block; max-width: 100%; }
 }
 .countries__filter-by-region {
   border: none;
-  background-color: var(--clr-white);
+  background-color: var(--clr-elements);
   padding: 15px 35px 15px 20px;
-  box-shadow: 0px 0px 6px -3px var(--clr-dark-gray);
+  box-shadow: 0px 0px 6px -3px var(--clr-box-shadow);
   border-radius: 5px;
   font-weight: 600;
   appearance: none; 
@@ -92,16 +102,17 @@ img { display: block; max-width: 100%; }
 .countries__search-bar {
   border: none;
   padding: 15px 20px 15px 70px;
-  box-shadow: 0px 0px 6px -3px var(--clr-dark-gray);
+  box-shadow: 0px 0px 6px -3px var(--clr-box-shadow);
   border-radius: 5px;
   font-weight: 600;
   width: 100%;
+  background-color: var(--clr-elements);
   background-image: url("./images/search-icon.svg");
   background-repeat: no-repeat;
   background-position: left 30px center;
 }
 .countries__search-bar::placeholder {
-  color: rgb(117,117,117);
+  color: var(--clr-input);
 }
 .countries__content {
   --max-width-card: min(300px, 100%);
@@ -113,11 +124,11 @@ img { display: block; max-width: 100%; }
 .country {
   --radius: 6px;
   border-radius: var(--radius);
-  box-shadow: 0px 0px 10px -6px var(--clr-dark-gray);
+  box-shadow: 0px 0px 10px -6px var(--clr-box-shadow);
   width: 100%;
   max-width: var(--max-width-card);
   padding-bottom: 25px;
-  background-color: var(--clr-white);
+  background-color: var(--clr-elements);
   text-decoration: none;
   color: inherit;
 }
@@ -172,10 +183,10 @@ img { display: block; max-width: 100%; }
   gap: 8px;
   padding: 7px 25px;
   margin: 25px 0;
-  background-color: var(--clr-white);
+  background-color: var(--clr-elements);
   color: inherit;
   text-decoration: none;
-  box-shadow: 0px 0px 6px -3px var(--clr-dark-gray);
+  box-shadow: 0px 0px 6px -3px var(--clr-box-shadow);
   border-radius: 5px;
 }
 
@@ -195,7 +206,25 @@ img { display: block; max-width: 100%; }
 .country-info__group.second {
   margin-top: 40px;
 }
-
+.country-info__border-countries > p {
+  margin: 0;
+}
+.country-info__border-countries {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.country-info__border-countries-border {
+  gap: 8px;
+  padding: 5px 25px;
+  background-color: var(--clr-elements);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0px 0px 6px -3px var(--clr-box-shadow);
+  border-radius: 3px;
+}
 /* Desktop country page */
 @media (min-width: 1000px) {
   .country-info__side-by-side {
@@ -204,9 +233,16 @@ img { display: block; max-width: 100%; }
   }
   #country-info-container {
     display: grid;
+    align-items: center;
     gap: 50px;
     grid-template-columns: 1fr 1fr;
     margin-top: 25px;
+  }
+  .country-info__title {
+    margin-top: 0;
+  }
+  .country-info__border-countries > p {
+    margin-bottom: 0;
   }
   .country-info__image {
     margin: 0;
