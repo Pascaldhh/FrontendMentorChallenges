@@ -176,11 +176,12 @@ img { display: block; max-width: 100% }
   color: var(--clr-placeholder);
 }
 .countries__content {
-  --max-width-card: min(300px, 100%);
+  --max-width-card: min(240px, 100%);
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--max-width-card));
   justify-content: center;
-  gap: 4rem;
+  column-gap: 2rem;
+  row-gap: 3rem;
 }
 .country {
   --radius: 6px;
@@ -188,7 +189,7 @@ img { display: block; max-width: 100% }
   box-shadow: 0px 0px 10px -6px var(--clr-box-shadow);
   width: 100%;
   max-width: var(--max-width-card);
-  padding-bottom: 25px;
+  padding-bottom: 5px;
   background-color: var(--clr-elements);
   text-decoration: none;
   color: inherit;
