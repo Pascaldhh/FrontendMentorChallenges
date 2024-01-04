@@ -112,12 +112,24 @@ button, input {
   margin-bottom: 20px;
 }
 .summary__card {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px;
+  padding: 18px 20px 18px 40px;
   border-radius: 6px;
   font-weight: 500;
+}
+.summary__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 13px;
+  mask-position: 13px;
 }
 .summary__card-subject {
   font-size: 1.1rem;
@@ -129,11 +141,21 @@ button, input {
   color: hsl(var(--clr-neutral-dark-gray-blue));
   font-weight: 600;
 }
+.summary__card:nth-child(2)::before {
+  -webkit-mask-image: url("./assets/images/icon-reaction.svg");
+  mask-image: url("./assets/images/icon-reaction.svg");
+  background-color: hsl(var(--clr-light-red));
+}
 .summary__card:nth-child(2) {
   background-color: hsl(var(--clr-light-red), .08);
 }
 .summary__card:nth-child(2) .summary__card-subject {
   color: hsl(var(--clr-light-red));
+}
+.summary__card:nth-child(3)::before {
+  -webkit-mask-image: url("./assets/images/icon-memory.svg");
+  mask-image: url("./assets/images/icon-memory.svg");
+  background-color: hsl(var(--clr-orange-yellow));
 }
 .summary__card:nth-child(3) {
   background-color: hsl(var(--clr-orange-yellow), .08);
@@ -141,11 +163,21 @@ button, input {
 .summary__card:nth-child(3) .summary__card-subject {
   color: hsl(var(--clr-orange-yellow));
 }
+.summary__card:nth-child(4)::before {
+  -webkit-mask-image: url("./assets/images/icon-verbal.svg");
+  mask-image: url("./assets/images/icon-verbal.svg");
+  background-color: hsl(var(--clr-green-teal));
+}
 .summary__card:nth-child(4) {
   background-color: hsl(var(--clr-green-teal), .08);
 }
 .summary__card:nth-child(4) .summary__card-subject {
   color: hsl(var(--clr-green-teal));
+}
+.summary__card:nth-child(5)::before {
+  -webkit-mask-image: url("./assets/images/icon-visual.svg");
+  mask-image: url("./assets/images/icon-visual.svg");
+  background-color: hsl(var(--clr-cobalt-blue));
 }
 .summary__card:nth-child(5) {
   background-color: hsl(var(--clr-cobalt-blue), .08);
