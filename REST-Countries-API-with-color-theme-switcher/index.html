@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme='dark'>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +7,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <script src="./theme-switcher.js"></script>
   <title>Frontend Mentor | REST countries api with color theme switcher</title>
 </head>
 <body>
   <header class="top-header">
     <div class="container">
       <h1 class="top-header__title"><a href="">Where in the world?</a></h1>
-      <div class="top-header__theme-switcher">
-        <img src="./images/moon-regular.svg" alt=""/>
-        <p>Dark Mode</p>
-      </div>
+      <button id="theme-switcher" class="top-header__theme-switcher">
+        <p><span id="theme-mode">Dark</span> Mode</p>
+      </button>
     </div>
   </header>
   <main>
     <section class="countries">
       <div class="container">
         <form class="countries__head" onsubmit="return false;">
-          <input id="search-bar" type="text" class="countries__search-bar" placeholder="Search for a country...">
-          <select class="countries__filter-by-region" id="filter-by-region">
-            <option value="" selected>Filter by Region</option>
-          </select>
+          <div class="countries__search-bar-wrap">
+            <input id="search-bar" type="text" class="countries__search-bar" placeholder="Search for a country...">
+          </div>
+          <div class="countries__filter-by-region-wrap">
+            <select class="countries__filter-by-region" id="filter-by-region">
+              <option value="" selected>Filter by Region</option>
+            </select>
+          </div>
         </form>
         <div id="country-container" class="countries__content"></div>
       </div>

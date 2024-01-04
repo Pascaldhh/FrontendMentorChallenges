@@ -211,7 +211,6 @@ class Countries {
   }
 }
 
-
 if(!window.location.pathname.includes("country")) {
   new Countries(
     await Country.all(),
