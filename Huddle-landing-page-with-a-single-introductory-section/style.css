@@ -1,0 +1,84 @@
+:root {
+  --clr-violet: 257, 40%, 49%;
+  --clr-magenta: 300, 69%, 71%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("./images/bg-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: hsl(var(--clr-violet));
+  font-family: 'Open Sans', sans-serif; 
+  color: white;
+}
+
+img { max-width: 100% }
+.logo { max-width: 140px }
+
+.container {
+  padding: 0 40px;
+}
+header {
+  padding: 30px 0;
+}
+.community {
+  text-align: center;
+}
+.community__title {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 50px;
+  font-size: 1.75rem;
+}
+.community__description {
+  font-size: 1.2rem;
+}
+
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.social-icons * {
+  position: relative;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+.social-icons *, .social-icons *::before {
+  width: 40px;
+  height: 40px;
+}
+.social-icons *::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 46.5% 46%;
+  mask-position: 46.5% 46%;
+  background-color: #fff;
+}
+
+.facebook-icon::before {
+  -webkit-mask-image: url("./images/facebook-f.svg");
+  mask-image: url("./images/facebook-f.svg");
+  -webkit-mask-size: 15px;
+  mask-size: 15px;
+}
+.twitter-icon::before {
+  -webkit-mask-image: url("./images/twitter.svg");
+  mask-image: url("./images/twitter.svg");
+  -webkit-mask-size: 20px;
+  mask-size: 20px;
+}
+.insta-icon::before {
+  -webkit-mask-image: url("./images/instagram.svg");
+  mask-image: url("./images/instagram.svg");
+  -webkit-mask-size: 20px;
+  mask-size: 20px;
+}
