@@ -35,7 +35,7 @@ img { max-width: 100% }
 .logo:hover { transform: scale(1.05); }
 .container {
   padding: 0 30px;
-  max-width: 1500px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 header {
@@ -63,9 +63,7 @@ main {
   font-size: 1.75rem;
   margin-bottom: 0;
 }
-.community__content {
-  max-width: 500px;
-}
+
 .community__description {
   font-size: 1.1rem;
   margin-top: 15px;
@@ -175,7 +173,7 @@ footer a:hover {
     font-size: 2.5rem;
   }
   .community__image {
-    width: 50%;
+    width: 55%;
   }
   .social-icons {
     justify-content: flex-end;
