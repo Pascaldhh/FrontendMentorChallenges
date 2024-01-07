@@ -1,0 +1,122 @@
+:root {
+  --clr-cyan: hsl(193, 38%, 86%);
+  --clr-green: hsl(150, 100%, 66%);
+
+  --clr-gray-blue: hsl(217, 19%, 38%);
+  --clr-darkgray-blue: hsl(217, 19%, 24%);
+  --clr-dark-blue: hsl(218, 23%, 16%);
+
+  --clr-warning: rgb(226, 45, 45);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  background-color: var(--clr-dark-blue);
+  color: var(--clr-cyan);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  min-height: 90dvh;
+  padding: 0 20px;
+}
+.advice {
+  position: relative;
+  background-color: var(--clr-darkgray-blue);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 550px;
+  box-shadow: 1px 1px 12px rgb(0, 0, 0, .2);
+}
+.advice__warning {
+  opacity: 0;
+  user-select: none;
+  color: var(--clr-warning); 
+  font-size: 14px;
+  display: flex; 
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: opacity .2s ease-in-out;
+}
+.advice__warning.warning {
+  opacity: 1;
+}
+
+.advice__title {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  color: var(--clr-green);
+}
+.advice__quote {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 25px;
+}
+.advice__seperator {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  margin: 20px 0;
+}
+.advice__seperator, .advice__divider, .advice__divider > img {width: 100%}
+.advice__btn {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -25px;
+  background-color: var(--clr-green);
+  border: none;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow .1s ease-in-out;
+}
+.advice__btn:hover, .advice__btn:focus-visible  {
+  box-shadow: 0 0 25px 2px var(--clr-green);
+  outline: none;
+}
+.advice__btn > img {
+  margin-top: 3px;
+}
+
+footer {
+  padding: 0 20px;
+  text-align: center;
+}
+footer a {
+  text-decoration: none;
+  color: rgb(167, 16, 16);
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .advice {
+    border-radius: 16px;
+  }
+  .advice__quote {
+    font-size: 28px;
+  }
+  .advice__seperator {
+    padding-top: 10px;
+    margin: 35px 0;
+  }
+}
