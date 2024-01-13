@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "";
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+:root {
+  --clr-purple: hsl(259, 100%, 65%);
+  --clr-red: hsl(0, 100%, 67%);
+  
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-off-white: hsl(0, 0%, 94%);
+  --clr-neutral-light-grey: hsl(0, 0%, 86%);
+  --clr-neutral-smoke-grey: hsl(0, 1%, 44%);
+  --clr-neutral-off-black: hsl(0, 0%, 8%);
+
+  --font: //TODO;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--clr-neutral-light-grey);
+  margin: 0;
+}
+.card {
+  background-color: var(--clr-neutral-white);
+}
+.card__output-result {
+  color: var(--clr-purple);
+}
