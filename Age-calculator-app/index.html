@@ -11,26 +11,31 @@
   <main>
     <div class="container">
       <section class="card">
-        <div class="card__inputs">
-          <div class="card__inputs-label-input">
-            <label for="day">DAY</label>
-            <input id="day" type="number" placeholder="DD"/>
+        <form id="card-form" class="card__form" novalidate>
+          <div class="card__inputs">
+            <div class="card__inputs-label-input">
+              <label for="input-day">DAY</label>
+              <input id="input-day" type="number" placeholder="DD" required/>
+              <p class="invalid" id="invalid-day"></p>
+            </div>
+            <div class="card__inputs-label-input">
+              <label for="input-month">MONTH</label>
+              <input id="input-month" type="number" placeholder="MM" required/>
+              <p class="invalid" id="invalid-month"></p>
+            </div>
+            <div class="card__inputs-label-input">
+              <label for="input-year">YEAR</label>
+              <input id="input-year" type="number" placeholder="YYYY" required/>
+              <p class="invalid" id="invalid-year"></p>
+            </div>
           </div>
-          <div class="card__inputs-label-input">
-            <label for="month">MONTH</label>
-            <input id="month" type="number" placeholder="MM"/>
+          <div class="card__divider">
+            <div class="card__divider-line"></div>
+            <button type="submit" id="btn-calculate" class="card__divider-arrow-icon">
+              <img src="./assets/images/icon-arrow.svg" alt="Arrow icon divider">
+            </button>
           </div>
-          <div class="card__inputs-label-input">
-            <label for="year">YEAR</label>
-            <input id="year" type="number" placeholder="YYYY"/>
-          </div>
-        </div>
-        <div class="card__divider">
-          <div class="card__divider-line"></div>
-          <button id="btn-calculate" class="card__divider-arrow-icon">
-            <img src="./assets/images/icon-arrow.svg" alt="Arrow icon divider">
-          </button>
-        </div>
+        </form>
         <div class="card__output">
           <p><span class="card__output-result" id="output-years">--</span> years</p>
           <p><span class="card__output-result" id="output-months">--</span> months</p>
