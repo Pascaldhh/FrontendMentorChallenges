@@ -68,29 +68,62 @@
         <div class="speed-typing__head">
           <div class="speed-typing__stats">
             <div class="speed-typing__stat">
-              <p class="speed-typing__wpm-text">WPM:</p>
-              <p class="speed-typing__wpm" id="speed-typing-wpm">0</p>
+              <p class="speed-typing__stat-text">WPM:</p>
+              <p class="speed-typing__stat-value" id="speed-typing-wpm">0</p>
             </div>
             <div class="speed-typing__stat">
-              <p class="speed-typing__accuracy-text">Accuracy:</p>
-              <p class="speed-typing__wpm" id="speed-typing-accuracy">100%</p>
+              <p class="speed-typing__stat-text">Accuracy:</p>
+              <p class="speed-typing__stat-value" id="speed-typing-accuracy">
+                100%
+              </p>
             </div>
             <div class="speed-typing__stat">
-              <p class="speed-typing__time-text">Time:</p>
-              <p class="speed-typing__wpm" id="speed-typing-time">0:60</p>
+              <p class="speed-typing__stat-text">Time:</p>
+              <p class="speed-typing__stat-value" id="speed-typing-time">
+                0:60
+              </p>
             </div>
           </div>
           <div class="speed-typing__options">
-            <select class="speed-typing__diff-mobile" name="" id="">
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
-            <select class="speed-typing__mode-mobile" name="" id="">
-              <option value="timed">Timed(60s)</option>
-              <option value="passage">Passage</option>
-            </select>
+            <div class="speed-typing__options-mobile">
+              <select class="speed-typing__diff" name="" id="">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard" selected>Hard</option>
+              </select>
+              <select class="speed-typing__mode" name="" id="">
+                <option value="timed">Timed(60s)</option>
+                <option value="passage">Passage</option>
+              </select>
+            </div>
+            <div class="speed-typing__options-desktop">
+              <div class="speed-typing__option">
+                <p class="speed-typing__option-text">Difficulty:</p>
+                <div class="speed-typing__difficulty-options">
+                  <button data-diff="easy">Easy</button>
+                  <button data-diff="medium">Medium</button>
+                  <button class="btn-selected" data-diff="hard">Hard</button>
+                </div>
+              </div>
+              <div class="speed-typing__option">
+                <p class="speed-typing__option-text">Difficulty:</p>
+                <div class="speed-typing__difficulty-options">
+                  <button class="btn-selected" data-mode="timed">
+                    Timed (60s)
+                  </button>
+                  <button data-mode="passage">Passage</button>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="speed-typing__main">
+          <p class="speed-typing__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eos
+            porro veritatis et, dicta eius soluta. Dolores praesentium amet
+            suscipit impedit. Quae fugit mollitia aspernatur recusandae
+            voluptatem consectetur consequatur saepe.
+          </p>
         </div>
       </div>
     </main>
